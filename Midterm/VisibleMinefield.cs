@@ -38,18 +38,12 @@ namespace Midterm
 
         }
         
-        public static void PrintHiddenArray()
+        public static void PrintHiddenArray(string[,] visMinefield)
         {
-<<<<<<< HEAD
-            //HiddenMinefield testx = new HiddenMinefield();
-            //HiddenMinefield testy = new HiddenMinefield();
-                       
-            for (int i = 0; i < testx.X; i++)
-=======
-            for (int i = 0; i < 20; i++)
->>>>>>> 02aeac0c1292d37a8c233ed5145b25d6dc0f4ea0
+                                   
+            for (int i = 0; i < visMinefield.GetLength(0); i++)
             {
-                for (int j = 0; j < testx.X; j++)
+                for (int j = 0; j < visMinefield.GetLength(1); j++)
                 {
                     Console.Write("# ");    //# >> check cell contents of HiddenArray
                 }
