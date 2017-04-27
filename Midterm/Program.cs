@@ -24,11 +24,16 @@ namespace Midterm
             int bombs = Validation.GetValidInteger();
 
 
-            //Initiate game (Print, get choice, check & update array, repeat)
+            do {
 
-            //Continue?
-            //Console.WriteLine("{0}", (char)224);  printing ascii characters
-            //VisibleMinefield.PrintHiddenArray();
+                HiddenMinefield minefield = new HiddenMinefield(rows, columns, bombs);
+
+                //Initiate game (Print, get choice, check & update array, repeat)
+
+                //Continue?
+                //Console.WriteLine("{0}", (char)224);  printing ascii characters
+                //VisibleMinefield.PrintHiddenArray();
+            }while(Validation.Continue());
         }
     }
 }
