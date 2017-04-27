@@ -23,8 +23,8 @@ namespace Midterm
 
             int bombs = Validation.GetValidInteger();
 
-            do
-            {
+
+            do {
 
                 HiddenMinefield minefield = new HiddenMinefield(rows, columns, bombs);
 

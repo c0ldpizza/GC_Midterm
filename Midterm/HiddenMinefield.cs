@@ -9,6 +9,7 @@ namespace Midterm
     class HiddenMinefield: Minefield
     {
         private string[,] minefield;
+        
 
         public string[,] Minefield
         {
@@ -20,6 +21,15 @@ namespace Midterm
             set
             {
                 minefield = value;
+            }
+        }
+        
+        public static void AddBombs(string[,] minefield, int numBombs)
+        {
+            Random rnd = new Random();
+            for (int i = 0; i < numBombs; i++)
+            {
+                minefield[rnd.Next(1, minefield.GetLength(0)), rnd.Next(1, minefield.GetLength(1))] = "B";
             }
         }
 
