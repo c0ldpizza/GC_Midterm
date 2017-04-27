@@ -63,9 +63,6 @@ namespace Midterm
 
 
             }while(Validation.Continue());
-
-            } while (Validation.Continue());
-
         }
     }
 }
