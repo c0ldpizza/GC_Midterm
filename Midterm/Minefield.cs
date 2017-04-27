@@ -8,6 +8,8 @@ namespace Midterm
 {
     class Minefield
     {
+        private int x;
+        private int y;
         //hold private 2Darray (x,y)
 
         //GenerateMethod(make array[x[y]], add bombs, fill in numbers)
