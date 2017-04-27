@@ -10,7 +10,9 @@ namespace Midterm
     {
         private int x;
         private int y;
+        private int bombs;
 
+        #region
         public int X
         {
             get
@@ -37,16 +39,34 @@ namespace Midterm
             }
         }
 
+        public int Bombs
+        {
+            get
+            {
+                return bombs;
+            }
+
+            set
+            {
+                bombs = value;
+            }
+        }
+        #endregion
+
+        //default constructor
         public Minefield()
         {
             x = 10;
             y = 10;
+            bombs = 13;
         }
 
-        public Minefield(int x, int y)
+        //Custom constructor
+        public Minefield(int x, int y, int bombs)
         {
             this.x = x;
             this.y = y;
+            this.bombs = bombs;
         }
 
         //hold private 2Darray (x,y)
