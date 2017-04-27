@@ -9,9 +9,9 @@ namespace Midterm
     class VisibleMinefield : Minefield
     {
         
-        private string[][] visMinefield;
+        private string[,] visMinefield;
 
-        public string[][] VisMinefield
+        public string[,] VisMinefield
         {
             get
             {
@@ -31,7 +31,7 @@ namespace Midterm
 
         //print array to console(display output)
 
-        public VisibleMinefield(string[][] visMinefieldInput)
+        public VisibleMinefield(string[,] visMinefieldInput)
         {
             visMinefield = visMinefieldInput;
 

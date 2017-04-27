@@ -54,6 +54,6 @@ namespace Midterm
         //GenerateMethod(make array[x[y]], add bombs, fill in numbers)
 
         //public static ____ checkcontents()
-        //return value of Minefield[x][y];
+        //return value of Minefield[x,y];
     }
 }
