@@ -31,10 +31,11 @@ namespace Midterm
 
         //print array to console(display output)
 
-        public VisibleMinefield() { }
-        public VisibleMinefield(string[,] visMinefieldInput)
+        //public VisibleMinefield() { }
+        public VisibleMinefield()
         {
-            visMinefield = visMinefieldInput;
+            
+            //visMinefield = visMinefieldInput;
 
         }
         

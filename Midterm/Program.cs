@@ -12,28 +12,50 @@ namespace Midterm
         {
             //get user input for minefield size and # of bombs(pass to Minefield constructor)
             Console.WriteLine("Welcome to the Minefield! \n");
-            Console.WriteLine("Please enter the size of your minefield: (x, y) ");
-            Console.Write("Rows: ");
-            int rows = Validation.GetNumberInRange(2, 20);
 
-            Console.Write("Columns: ");
-            int columns = Validation.GetNumberInRange(2, 20);
+            do
+            {
+                Console.WriteLine("Please enter the size of your minefield: (x, y) ");
+                Console.Write("Rows: ");
+                int rows = Validation.GetNumberInRange(2, 20);
 
-            Console.WriteLine("Please enter the number of bombs in your minefield: ");
+                Console.Write("Columns: ");
+                int columns = Validation.GetNumberInRange(2, 20);
 
-            int bombs = Validation.GetValidInteger();
+                Console.WriteLine("Please enter the number of bombs in your minefield: ");
+
+                int bombs = Validation.GetValidInteger();
 
 
-            do {
 
-                HiddenMinefield minefield = new HiddenMinefield(rows, columns, bombs);
+
+                HiddenMinefield gameMinefield = new HiddenMinefield(rows, columns, bombs);
+
+                //string[,] gameMinefield = new string[3, 3];
+                for (int i = 0; i < gameMinefield.Minefield.GetLength(0); i++)
+                {
+                    for (int j = 0; j < gameMinefield.Minefield.GetLength(1); j++)
+                    {
+                        gameMinefield.Minefield[i, j] = "0";
+                    }
+                }
+
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        Console.Write(gameMinefield.Minefield[i, j]);
+                    }
+                    Console.WriteLine();
+                }
+
 
                 //Initiate game (Print, get choice, check & update array, repeat)
 
                 //Continue?
                 //Console.WriteLine("{0}", (char)224);  printing ascii characters
                 //VisibleMinefield.PrintHiddenArray();
-            }while(Validation.Continue());
+            } while (Validation.Continue());
         }
     }
 }
