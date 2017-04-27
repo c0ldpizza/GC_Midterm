@@ -8,6 +8,26 @@ namespace Midterm
 {
     class HiddenMinefield: Minefield
     {
-        private string[][] minefield;
+        private string[,] minefield;
+
+        public string[,] Minefield
+        {
+            get
+            {
+                return minefield;
+            }
+
+            set
+            {
+                minefield = value;
+            }
+        }
+
+        public HiddenMinefield() { }
+
+        public HiddenMinefield(int rows, int columns)
+        {
+            string[,] minefield = new string[rows,columns];
+        }
     }
 }
