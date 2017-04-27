@@ -29,9 +29,9 @@ namespace Midterm
         /*when we first ask them to enter number of rows and columns, should we assign a min max number
          so it's not a ginormous game? And validate that it's within max amount? */
 
-        public static double GetNumberInRangeDouble(double min, double max)
+        public static int GetNumberInRange(int min, int max)
         {
-            double input = GetValidInteger();
+            int input = GetValidInteger();
             while (input < min || input > max)
             {
                 Console.WriteLine("Please enter an integer between {0} and {1}.", min, max);

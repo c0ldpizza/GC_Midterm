@@ -15,7 +15,7 @@ namespace Midterm
             //Initiate game (Print, get choice, check & update array, repeat)
 
             //Continue?
-
+            //Console.WriteLine("{0}", (char)224);  printing ascii characters
             VisibleMinefield.PrintHiddenArray();
         }
     }
