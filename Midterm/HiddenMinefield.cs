@@ -38,7 +38,15 @@ namespace Midterm
         public HiddenMinefield(int rows, int columns, int bombs)
         {
             string[,] minefield = new string[rows,columns];
-            //AddBombs(int bombs){}
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    minefield[i, j] = "0";
+                }
+            }
+
+            AddBombs(minefield, bombs);
             //AddNumberstoMinefield(){}
         }
     }
