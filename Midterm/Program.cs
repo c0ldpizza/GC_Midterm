@@ -19,6 +19,9 @@ namespace Midterm
             Console.Write("Columns: ");
             int columns = Validation.GetNumberInRange(2, 20);
 
+            Console.WriteLine("Please enter the number of bombs in your minefield: ");
+
+            int bombs = Validation.GetValidInteger();
 
 
             //Initiate game (Print, get choice, check & update array, repeat)
