@@ -8,14 +8,36 @@ namespace Midterm
 {
     class VisibleMinefield : Minefield
     {
-        private int x;
-        private int y;
+
+        private string[][] visMinefield;
+
+        public string[][] VisMinefield
+        {
+            get
+            {
+                return visMinefield;
+            }
+
+            set
+            {
+                visMinefield = value;
+            }
+        }
+
+
         //generate array[x[y]] of ascii characters
 
         //call UserInput.GetCoordinates();
         //update array method
 
         //print array to console(display output)
+
+        public VisibleMinefield(string[][] visMinefieldInput)
+        {
+            visMinefield = visMinefieldInput;
+
+        }
+
         public static void PrintHiddenArray()
         {
             
