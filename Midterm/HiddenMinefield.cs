@@ -29,7 +29,7 @@ namespace Midterm
             Random rnd = new Random();
             for (int i = 0; i < numBombs; i++)
             {
-                minefield[rnd.Next(1, minefield.GetLength(0)), rnd.Next(1, minefield.GetLength(1))] = "B";
+                minefield[rnd.Next(1, minefield.GetLength(0)), rnd.Next(1, minefield.GetLength(1))] = "X ";
             }
         }
 
@@ -42,12 +42,22 @@ namespace Midterm
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    minefield[i, j] = "0";
+                    minefield[i, j] = "0 ";
                 }
             }
 
             AddBombs(minefield, bombs);
             //AddNumberstoMinefield(){}
+            //test print of hidden minefield
+            //for (int i = 0; i < minefield.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < minefield.GetLength(1); j++)
+            //    {
+            //        Console.Write(minefield[i, j]);
+            //    }
+            //    Console.WriteLine();
+            //}
+
         }
     }
 }

@@ -32,22 +32,22 @@ namespace Midterm
                 HiddenMinefield gameMinefield = new HiddenMinefield(rows, columns, bombs);
 
                 //string[,] gameMinefield = new string[3, 3];
-                for (int i = 0; i < gameMinefield.Minefield.GetLength(0); i++)
-                {
-                    for (int j = 0; j < gameMinefield.Minefield.GetLength(1); j++)
-                    {
-                        gameMinefield.Minefield[i, j] = "0";
-                    }
-                }
+                //for (int i = 0; i < gameMinefield.Minefield.GetLength(0); i++)
+                //{
+                //    for (int j = 0; j < gameMinefield.Minefield.GetLength(1); j++)
+                //    {
+                //        gameMinefield.Minefield[i, j] = "0";
+                //    }
+                //}
 
-                for (int i = 0; i < 3; i++)
-                {
-                    for (int j = 0; j < 3; j++)
-                    {
-                        Console.Write(gameMinefield.Minefield[i, j]);
-                    }
-                    Console.WriteLine();
-                }
+                //for (int i = 0; i < 3; i++)
+                //{
+                //    for (int j = 0; j < 3; j++)
+                //    {
+                //        Console.Write(gameMinefield.Minefield[i, j]);
+                //    }
+                //    Console.WriteLine();
+                //}
 
 
                 //Initiate game (Print, get choice, check & update array, repeat)
