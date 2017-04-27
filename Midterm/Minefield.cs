@@ -10,7 +10,6 @@ namespace Midterm
     {
         private int x;
         private int y;
-        private string[][] minefield;
 
         public int X
         {
@@ -37,6 +36,19 @@ namespace Midterm
                 y = value;
             }
         }
+
+        public Minefield()
+        {
+            x = 10;
+            y = 10;
+        }
+
+        public Minefield(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
         //hold private 2Darray (x,y)
 
         //GenerateMethod(make array[x[y]], add bombs, fill in numbers)
