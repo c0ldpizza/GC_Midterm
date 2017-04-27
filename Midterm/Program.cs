@@ -46,26 +46,26 @@ namespace Midterm
                 //    Console.WriteLine();
                 //}
 
->>>>>>> d04e45280d5cfabc22c72504ef41a2a042784e1b
-
-                HiddenMinefield.AddBombs(minefield1.Minefield, 10);
-
-                Console.WriteLine(minefield1.Minefield);
 
 
-                VisibleMinefield minefield2 = new VisibleMinefield(minefield1.Minefield);
+                HiddenMinefield.AddBombs(gameMinefield.Minefield, 10);
+
+                Console.WriteLine(gameMinefield.Minefield);
+
+
+                VisibleMinefield minefield2 = new VisibleMinefield(rows, columns);
                 VisibleMinefield.PrintHiddenArray(minefield2.VisMinefield);
                 //Initiate game (Print, get choice, check & update array, repeat)
 
                 //Continue?
                 //Console.WriteLine("{0}", (char)224);  printing ascii characters
                 //VisibleMinefield.PrintHiddenArray();
-<<<<<<< HEAD
+
 
             }while(Validation.Continue());
-=======
+
             } while (Validation.Continue());
->>>>>>> d04e45280d5cfabc22c72504ef41a2a042784e1b
+
         }
     }
 }
