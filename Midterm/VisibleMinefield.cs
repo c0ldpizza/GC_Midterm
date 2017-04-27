@@ -32,13 +32,13 @@ namespace Midterm
         //print array to console(display output)
 
         //public VisibleMinefield() { }
-        public VisibleMinefield()
+        public VisibleMinefield(int rows, int columns)
         {
-            
-            //visMinefield = visMinefieldInput;
+
+            visMinefield = new string[rows, columns];
 
         }
-        
+
         public static void PrintHiddenArray(string[,] visMinefield)
         {
                                    
