@@ -23,6 +23,7 @@ namespace Midterm
 
             int bombs = Validation.GetValidInteger();
 
+            HiddenMinefield minefield = new HiddenMinefield(rows, columns, bombs);
 
             //Initiate game (Print, get choice, check & update array, repeat)
 
