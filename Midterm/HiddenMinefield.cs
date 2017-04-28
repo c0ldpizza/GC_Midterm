@@ -25,7 +25,7 @@ namespace Midterm
         }
 
         //Recursive method to reveal number of adjacent bombs
-        public static void BombCount(int row, int col, string[,] minefield)
+        public static void BombCount(int row, int col, string[,] minefield, string[,] visMinefield)
         {
             int adjBombs = 0;
             //starts if HiddenMinefield.minefield[x,y] != "B ";
@@ -41,12 +41,12 @@ namespace Midterm
             }
             if (adjBombs == 0)
             {
-                minefield[row,col] = "  ";
-                BombCount(row, col, minefield);
+                visMinefield[row,col] = "  ";
+                BombCount(row, col, minefield, visMinefield);
             }
             else
             {
-                minefield[row, col] = adjBombs.ToString() + " ";
+                visMinefield[row, col] = adjBombs.ToString() + " ";
             }
         }
         //Add bombs to hidden array

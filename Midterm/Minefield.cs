@@ -53,6 +53,7 @@ namespace Midterm
         }
         #endregion
 
+
         //default constructor
         public Minefield()
         {

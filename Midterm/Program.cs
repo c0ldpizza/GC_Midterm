@@ -28,12 +28,12 @@ namespace Midterm
 
                 HiddenMinefield gameMinefield = new HiddenMinefield(rows, columns, bombs);
 
-                VisibleMinefield minefield2 = new VisibleMinefield(rows, columns);
+                VisibleMinefield userMinefield = new VisibleMinefield(rows, columns);
 
                 //loop
                 do
                 {
-                    VisibleMinefield.PrintHiddenArray(minefield2.VisMinefield);
+                    VisibleMinefield.PrintHiddenArray(userMinefield.VisMinefield);
 
                     //Getting user input for box selection
                     Console.WriteLine("Please enter your x coordinate: ");
@@ -44,10 +44,16 @@ namespace Midterm
                     Console.Write("yGuess:");
                     int yGuess = Validation.GetNumberInRange(0, columns);
 
+                    if (gameMinefield.Minefield[xGuess, yGuess] != "B ")
+                        HiddenMinefield.BombCount(xGuess, yGuess, 
+                            gameMinefield.Minefield, userMinefield.VisMinefield);
+
+                 //   Console.WriteLine("Do you wish to flag a spot? Enter Y or N: ");
+
                     //Check/update arrays
                     //end loop
-                } while (true); 
-
+                } while (true);
+                
                 //Initiate game (Print, get choice, check & update array, repeat)
 
 

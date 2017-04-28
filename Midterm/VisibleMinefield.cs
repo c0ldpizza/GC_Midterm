@@ -58,7 +58,6 @@ namespace Midterm
             Console.WriteLine();
         }
 
-
     }
 }
 
