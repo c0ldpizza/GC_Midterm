@@ -30,10 +30,10 @@ namespace Midterm
 
                 VisibleMinefield userMinefield = new VisibleMinefield(rows, columns);
 
-                //loop
+                // Game loop
                 do
                 {
-                    VisibleMinefield.PrintHiddenArray(userMinefield.VisMinefield);
+                    VisibleMinefield.PrintHiddenArray(userMinefield.VisMinefield); //minefield display
 
 
 
@@ -48,35 +48,38 @@ namespace Midterm
                     Console.WriteLine("Please enter your y coordinate: ");
                     Console.Write("yGuess:");
                     int yGuess = Validation.GetNumberInRange(0, columns);
-                    if (choice.ToLower() == "f")
+                    if (choice.ToLower() == "f") //if user chooses to place a flag on a spot, spot will be marked "F"
                     {
 
                         userMinefield.VisMinefield[xGuess, yGuess] = "F ";
 
                     }
-                    else if (choice.ToLower() == "c")
+                    else if (choice.ToLower() == "c") //user choosing to guess
                     {
-                        if (gameMinefield.Minefield[xGuess, yGuess] == "B ")
+                        if (gameMinefield.Minefield[xGuess, yGuess] == "B ") //if the x,y coordinates chosen by user are a hidden bomb in the hiddenarray, game over
+                        {
                             Console.WriteLine("Boom! You're Dead!");
 
-                        break;
-                }
+                            break;
+                        }
 
-                    else if (gameMinefield.Minefield[xGuess, yGuess] != "B ")
-                    { HiddenMinefield.BombCount(xGuess, yGuess,
-                            gameMinefield.Minefield, userMinefield.VisMinefield);
 
+                        else if (gameMinefield.Minefield[xGuess, yGuess] != "B ") //if x,y coordinates are not a bomb, board will display empty spots and numbered spots
+                        {
+                            HiddenMinefield.BombCount(xGuess, yGuess,
+                                  gameMinefield.Minefield, userMinefield.VisMinefield);
+                        }
                     }
                     
                         
                     
 
 
-                    //Check/update arrays
+                    
                     //end loop
                 } while (true);
                 
-                //Initiate game (Print, get choice, check & update array, repeat)
+                
 
 
 
