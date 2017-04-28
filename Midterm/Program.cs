@@ -41,13 +41,15 @@ namespace Midterm
                     Console.WriteLine("Do you wish to flag a spot or check it? Enter F or C: ");
                     string choice = Validation.GetValidLetter();
 
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
                     Console.WriteLine("Please enter your x coordinate: ");
                     Console.Write("xGuess:");
                     int xGuess = Validation.GetNumberInRange(0, rows);
-
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("Please enter your y coordinate: ");
                     Console.Write("yGuess:");
                     int yGuess = Validation.GetNumberInRange(0, columns);
+                    Console.ForegroundColor = ConsoleColor.Black;
                     if (choice.ToLower() == "f") //if user chooses to place a flag on a spot, spot will be marked "F"
                     {
 
