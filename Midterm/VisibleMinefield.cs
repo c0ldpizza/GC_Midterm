@@ -52,11 +52,23 @@ namespace Midterm
                 Console.WriteLine($"| {i}");  //prints row#
                 Console.WriteLine();
             }
-            for (int i = 0; i < visMinefield.GetLength(0); i++)
+            for (int j = 0; j < visMinefield.GetLength(1); j++)
             {
-                Console.Write($"{i}  ");    //prints column#
+                Console.Write($"{j}  ");    //prints column#
             }
             Console.WriteLine();
+        }
+
+        public static void PrintFullArray(string[,] minefield, string[,] visMinefield)
+        {
+            for (int i = 0; i < visMinefield.GetLength(0); i++)
+            {
+                for (int j = 0; j < visMinefield.GetLength(1); j++)
+                {
+                    visMinefield[i, j] = minefield[i, j];
+                }
+            }
+            PrintHiddenArray(visMinefield);
         }
 
     }
