@@ -24,7 +24,7 @@ namespace Midterm
             }
         }
 
-        //Recursive method to reveal number of adjacent bombs
+        //Recursive method to reveal number of adjacent bombs, NOT WORKING
         public static void BombCount(int row, int col, string[,] minefield, string[,] visMinefield)
         {
             int adjBombs = 0;
@@ -56,8 +56,7 @@ namespace Midterm
                         if (i >= 0 && i < minefield.GetLength(0)
                             && j >= 0 && j < minefield.GetLength(1))
                         {
-                            if (visMinefield[i,j] == "# " || visMinefield[i, j] == "1 " 
-                                || visMinefield[i, j] == "2 " || visMinefield[i, j] == "3 ")
+                            if (visMinefield[i,j] == "# ")
                             {
                                 visMinefield[i,j] = "  ";
                                 BombCount(i, j, minefield, visMinefield);
@@ -91,6 +90,29 @@ namespace Midterm
                 }
             }
             AddBombs(minefield, bombs);           
+        }
+
+        //Method that checks a single space
+        public static void BombCountSimple(int row, int col, string[,] minefield, string[,] visMinefield)
+        {
+            int adjBombs = 0;
+
+            for (int i = row - 1; i < row + 1; i++)
+            {
+                for (int j = col - 1; j < col + 1; j++)
+                {
+                    if (i >= 0 && i <= minefield.GetLength(0)
+                        && j >= 0 && j <= minefield.GetLength(1))
+                    {
+                        if (minefield[i, j] == "B ")
+                        {
+                            adjBombs++;
+                        }
+                    }
+                }
+            }
+            visMinefield[row, col] = adjBombs.ToString() + " ";
+            
         }
     }
 }
