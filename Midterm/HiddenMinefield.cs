@@ -29,25 +29,40 @@ namespace Midterm
         {
             int adjBombs = 0;
             //starts if HiddenMinefield.minefield[x,y] != "B ";
-            for (int i = -1; i <= 1; i++)
+
+            for (int i = -1; i < 1; i++)
             {
-                for (int j = -1; j <= 1; j++)
+                for (int j = -1; j < 1; j++)
                 {
-                    if (minefield[row + i, col + j] == "B ")
+                    if (row + i >= 0 && row + i <= minefield.GetLength(0)
+                        && col + j >= 0 && col + j <= minefield.GetLength(1))
                     {
-                        adjBombs++;
+                        if (minefield[row + i, col + j] == "B ")
+                        {
+                            adjBombs++;
+                        }
                     }
                 }
             }
             if (adjBombs == 0)
             {
-                visMinefield[row,col] = "  ";
-                BombCount(row, col, minefield, visMinefield);
+                for (int i = -1; i < 1; i++)
+                {
+                    for (int j = -1; j < 1; j++)
+                    {
+                        if (row + i >= 0 && row + i <= minefield.GetLength(0)
+                            && col + j >= 0 && col + j <= minefield.GetLength(1))
+                        {
+                            if (visMinefield[row + i, col + j] == "# ")
+                            {
+                                visMinefield[row + i, col + j] = "  ";
+                                BombCount(row + i, col + j, minefield, visMinefield);
+                            }
+                        }
+                    }
+                }
             }
-            else
-            {
-                visMinefield[row, col] = adjBombs.ToString() + " ";
-            }
+            
         }
         //Add bombs to hidden array
         public static void AddBombs(string[,] minefield, int numBombs)
