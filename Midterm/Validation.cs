@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Midterm
 {
-    class Validation
+    class Validation: Program
     {
         //validate user input for array size(positive integers)
         //validate which cell the user chooses(in range, or already chosen)
@@ -83,6 +83,14 @@ namespace Midterm
 
             } while (true);
             
+        }
+
+        //public static void CellCheck()
+        //{
+        //    if (userMinefield.VisMinefield[xGuess, yGuess] = "F ")
+        //    {
+        //        Console.WriteLine("Cell is unavailable");
+        //    }
         }
     }
 }
