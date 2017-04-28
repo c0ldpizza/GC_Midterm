@@ -11,6 +11,7 @@ namespace Midterm
         
         private string[,] visMinefield;
 
+        //property
         public string[,] VisMinefield
         {
             get
@@ -24,19 +25,20 @@ namespace Midterm
             }
         }
 
-        //generate array[x[y]] of ascii characters
-
-        //call UserInput.GetCoordinates();
-        //update array method
-
-        //print array to console(display output)
-
-        //public VisibleMinefield() { }
+        //Constructor
         public VisibleMinefield(int rows, int columns)
         {
 
             visMinefield = new string[rows, columns];
-
+            //sets all values to #
+            for (int i = 0; i < visMinefield.GetLength(0); i++)
+            {
+                for (int j = 0; j < visMinefield.GetLength(1); j++)
+                {
+                    visMinefield[i, j] = "# ";
+                }
+                
+            }
         }
 
         public static void PrintHiddenArray(string[,] visMinefield)
@@ -45,15 +47,15 @@ namespace Midterm
             for (int i = 0; i < visMinefield.GetLength(0); i++)
             {
                 for (int j = 0; j < visMinefield.GetLength(1); j++)
-                {
-                    Console.Write("# ");    //# >> check cell contents of HiddenArray
+                {   
+                    Console.Write(visMinefield[i, j] + " ");    //# >> check cell contents of HiddenArray
                 }
-                Console.WriteLine($"{i}");
+                Console.WriteLine($"{i}");  //prints row#
                 Console.WriteLine();
             }
             for (int i = 0; i < visMinefield.GetLength(0); i++)
             {
-                Console.Write($"{i} ");
+                Console.Write($"{i}  ");    //prints column#
             }
             Console.WriteLine();
         }
