@@ -39,7 +39,7 @@ namespace Midterm
 
                     //Getting user input for box selection
                     Console.WriteLine("Do you wish to flag a spot or check it? Enter F or C: ");
-                    string choice = Console.ReadLine();
+                    string choice = Validation.GetValidLetter();
 
                     Console.WriteLine("Please enter your x coordinate: ");
                     Console.Write("xGuess:");

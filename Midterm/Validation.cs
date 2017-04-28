@@ -68,5 +68,21 @@ namespace Midterm
             }
 
         }
+        public static string GetValidLetter()
+        {
+            do
+            {
+                string input = Console.ReadLine();
+
+                if ((input.ToLower() == "f") || (input.ToLower() == "c"))
+                {
+                    return input;
+                }
+                else
+                    Console.WriteLine("Invalid input. Please Enter F or C: ");
+
+            } while (true);
+            
+        }
     }
 }
