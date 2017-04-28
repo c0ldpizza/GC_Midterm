@@ -58,11 +58,11 @@ namespace Midterm
                     {
                         if (gameMinefield.Minefield[xGuess, yGuess] == "B ") //if the x,y coordinates chosen by user are a hidden bomb in the hiddenarray, game over
                         {
+                            Console.Clear();
                             Console.WriteLine("Boom! You're Dead!");
-
+                            VisibleMinefield.PrintFullArray(gameMinefield.Minefield, userMinefield.VisMinefield);
                             break;
                         }
-
 
                         else if (gameMinefield.Minefield[xGuess, yGuess] != "B ") //if x,y coordinates are not a bomb, board will display empty spots and numbered spots
                         {
@@ -71,17 +71,8 @@ namespace Midterm
                         }
                     }
                     
-                        
-                    
-
-
-                    
                     //end loop
                 } while (true);
-                
-                
-
-
 
             } while(Validation.Continue());
         }

@@ -56,7 +56,8 @@ namespace Midterm
                         if (i >= 0 && i < minefield.GetLength(0)
                             && j >= 0 && j < minefield.GetLength(1))
                         {
-                            if (visMinefield[i,j] == "# ")
+                            if (visMinefield[i,j] == "# " || visMinefield[i, j] == "1 " 
+                                || visMinefield[i, j] == "2 " || visMinefield[i, j] == "3 ")
                             {
                                 visMinefield[i,j] = "  ";
                                 BombCount(i, j, minefield, visMinefield);
