@@ -66,7 +66,9 @@ namespace Midterm
 
                         else if (gameMinefield.Minefield[xGuess, yGuess] != "B ") //if x,y coordinates are not a bomb, board will display empty spots and numbered spots
                         {
-                            HiddenMinefield.BombCount(xGuess, yGuess,
+                            //HiddenMinefield.BombCount(xGuess, yGuess,
+                            //      gameMinefield.Minefield, userMinefield.VisMinefield);
+                            HiddenMinefield.BombCountSimple(xGuess, yGuess,
                                   gameMinefield.Minefield, userMinefield.VisMinefield);
                         }
                     }
