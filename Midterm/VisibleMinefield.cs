@@ -45,18 +45,38 @@ namespace Midterm
             Console.Clear();                      
             for (int i = 0; i < visMinefield.GetLength(0); i++)
             {
+                Console.Write($"{i} ");  //prints row#
                 for (int j = 0; j < visMinefield.GetLength(1); j++)
-                {   
-                    Console.Write(visMinefield[i, j] + " ");    //# >> check cell contents of HiddenArray
+                {
+                    PrintedColor(visMinefield, i, j);
                 }
-                Console.WriteLine($"| {i}");  //prints row#
                 Console.WriteLine();
             }
             for (int j = 0; j < visMinefield.GetLength(1); j++)
             {
-                Console.Write($"{j}  ");    //prints column#
+                Console.Write($"  {j}");    //prints column#
             }
             Console.WriteLine();
+        }
+
+        public static void PrintedColor(string[,] visMinefield, int i, int j)
+        {
+            switch (visMinefield[i, j].Remove(1))
+            {
+                case "1":
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    break;
+                case "2":
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    break;
+                case "3":
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    break;
+                default:
+                    break;
+            }
+            Console.Write(visMinefield[i, j] + " ");
+            Console.ResetColor();
         }
 
         public static void PrintFullArray(string[,] minefield, string[,] visMinefield)

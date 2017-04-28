@@ -67,6 +67,7 @@ namespace Midterm
             }
             
         }
+
         //Add bombs to hidden array
         public static void AddBombs(string[,] minefield, int numBombs)
         {
@@ -79,6 +80,7 @@ namespace Midterm
 
         public HiddenMinefield() { }
 
+        //Constructor
         public HiddenMinefield(int rows, int columns, int bombs)
         {
             minefield = new string[rows, columns];
@@ -111,6 +113,7 @@ namespace Midterm
                     }
                 }
             }
+            minefield[row, col] = adjBombs.ToString() + " ";
             visMinefield[row, col] = adjBombs.ToString() + " ";
             
         }
