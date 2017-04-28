@@ -59,7 +59,7 @@ namespace Midterm
                         if (gameMinefield.Minefield[xGuess, yGuess] == "B ")
                             Console.WriteLine("Boom! You're Dead!");
 
-                        Validation.Continue();
+                        break;
                 }
 
                     else if (gameMinefield.Minefield[xGuess, yGuess] != "B ")
