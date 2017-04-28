@@ -30,6 +30,17 @@ namespace Midterm
 
                 VisibleMinefield minefield2 = new VisibleMinefield(rows, columns);
                 VisibleMinefield.PrintHiddenArray(minefield2.VisMinefield);
+
+                //Getting user input for box selection
+                Console.WriteLine("Please enter your x coordinate: ");
+                Console.WriteLine("xGuess");
+                int xGuess = Validation.GetNumberInRange(0, rows);
+
+                Console.WriteLine("Please enter your y coordinate: ");
+                Console.WriteLine("yGuess");
+                int yGuess = Validation.GetNumberInRange(0, columns);
+
+
                 //Initiate game (Print, get choice, check & update array, repeat)
 
                 //Continue?
@@ -37,7 +48,7 @@ namespace Midterm
                 //VisibleMinefield.PrintHiddenArray();
 
 
-            }while(Validation.Continue());
+            } while(Validation.Continue());
         }
     }
 }
