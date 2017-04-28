@@ -15,7 +15,7 @@ namespace Midterm
         {
             int input;
 
-            Console.WriteLine("Please enter an Integer: ");
+            //Console.WriteLine("Please enter an Integer: ");
 
             while (!int.TryParse(Console.ReadLine(), out input))
             {

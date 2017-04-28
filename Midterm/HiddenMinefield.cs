@@ -23,13 +23,39 @@ namespace Midterm
                 minefield = value;
             }
         }
-        
+
+        //Recursive method to reveal number of adjacent bombs
+        public static void BombCount(int row, int col, string[,] minefield)
+        {
+            int adjBombs = 0;
+            //starts if HiddenMinefield.minefield[x,y] != "B ";
+            for (int i = -1; i <= 1; i++)
+            {
+                for (int j = -1; j <= 1; j++)
+                {
+                    if (minefield[row + i, col + j] == "B ")
+                    {
+                        adjBombs++;
+                    }
+                }
+            }
+            if (adjBombs == 0)
+            {
+                minefield[row,col] = "  ";
+                BombCount(row, col, minefield);
+            }
+            else
+            {
+                minefield[row, col] = adjBombs.ToString() + " ";
+            }
+        }
+        //Add bombs to hidden array
         public static void AddBombs(string[,] minefield, int numBombs)
         {
             Random rnd = new Random();
             for (int i = 0; i < numBombs; i++)
             {
-                minefield[rnd.Next(1, minefield.GetLength(0)), rnd.Next(1, minefield.GetLength(1))] = "X ";
+                minefield[rnd.Next(1, minefield.GetLength(0)), rnd.Next(1, minefield.GetLength(1))] = "B ";
             }
         }
 
@@ -45,19 +71,7 @@ namespace Midterm
                     minefield[i, j] = "0 ";
                 }
             }
-
-            AddBombs(minefield, bombs);
-            //AddNumberstoMinefield(){}
-            //test print of hidden minefield
-            //for (int i = 0; i < minefield.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < minefield.GetLength(1); j++)
-            //    {
-            //        Console.Write(minefield[i, j]);
-            //    }
-            //    Console.WriteLine();
-            //}
-
+            AddBombs(minefield, bombs);           
         }
     }
 }
