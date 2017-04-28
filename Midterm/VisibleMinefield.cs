@@ -48,9 +48,14 @@ namespace Midterm
                 {
                     Console.Write("# ");    //# >> check cell contents of HiddenArray
                 }
-                
+                Console.WriteLine($"{i}");
                 Console.WriteLine();
             }
+            for (int i = 0; i < visMinefield.GetLength(0); i++)
+            {
+                Console.Write($"{i} ");
+            }
+            Console.WriteLine();
         }
 
 
