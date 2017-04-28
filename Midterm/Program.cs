@@ -29,23 +29,27 @@ namespace Midterm
                 HiddenMinefield gameMinefield = new HiddenMinefield(rows, columns, bombs);
 
                 VisibleMinefield minefield2 = new VisibleMinefield(rows, columns);
-                VisibleMinefield.PrintHiddenArray(minefield2.VisMinefield);
 
-                //Getting user input for box selection
-                Console.WriteLine("Please enter your x coordinate: ");
-                Console.WriteLine("xGuess");
-                int xGuess = Validation.GetNumberInRange(0, rows);
+                //loop
+                do
+                {
+                    VisibleMinefield.PrintHiddenArray(minefield2.VisMinefield);
 
-                Console.WriteLine("Please enter your y coordinate: ");
-                Console.WriteLine("yGuess");
-                int yGuess = Validation.GetNumberInRange(0, columns);
+                    //Getting user input for box selection
+                    Console.WriteLine("Please enter your x coordinate: ");
+                    Console.Write("xGuess:");
+                    int xGuess = Validation.GetNumberInRange(0, rows);
 
+                    Console.WriteLine("Please enter your y coordinate: ");
+                    Console.Write("yGuess:");
+                    int yGuess = Validation.GetNumberInRange(0, columns);
+
+                    //Check/update arrays
+                    //end loop
+                } while (true); 
 
                 //Initiate game (Print, get choice, check & update array, repeat)
 
-                //Continue?
-                //Console.WriteLine("{0}", (char)224);  printing ascii characters
-                //VisibleMinefield.PrintHiddenArray();
 
 
             } while(Validation.Continue());
