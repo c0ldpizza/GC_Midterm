@@ -37,20 +37,19 @@ namespace Midterm
                 {
                     visMinefield[i, j] = "# ";
                 }
-                
             }
         }
 
         public static void PrintHiddenArray(string[,] visMinefield)
         {
-                                   
+            Console.Clear();                      
             for (int i = 0; i < visMinefield.GetLength(0); i++)
             {
                 for (int j = 0; j < visMinefield.GetLength(1); j++)
                 {   
                     Console.Write(visMinefield[i, j] + " ");    //# >> check cell contents of HiddenArray
                 }
-                Console.WriteLine($"{i}");  //prints row#
+                Console.WriteLine($"| {i}");  //prints row#
                 Console.WriteLine();
             }
             for (int i = 0; i < visMinefield.GetLength(0); i++)

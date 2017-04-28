@@ -28,35 +28,38 @@ namespace Midterm
         public static void BombCount(int row, int col, string[,] minefield, string[,] visMinefield)
         {
             int adjBombs = 0;
-            //starts if HiddenMinefield.minefield[x,y] != "B ";
 
-            for (int i = -1; i < 1; i++)
+            for (int i = row - 1; i < row + 1; i++)
             {
-                for (int j = -1; j < 1; j++)
+                for (int j = col - 1; j < col + 1; j++)
                 {
-                    if (row + i >= 0 && row + i <= minefield.GetLength(0)
-                        && col + j >= 0 && col + j <= minefield.GetLength(1))
+                    if (i >= 0 && i <= minefield.GetLength(0)
+                        && j >= 0 && j <= minefield.GetLength(1))
                     {
-                        if (minefield[row + i, col + j] == "B ")
+                        if (minefield[i,j] == "B ")
                         {
                             adjBombs++;
                         }
                     }
                 }
             }
-            if (adjBombs == 0)
+            if (adjBombs != 0)
             {
-                for (int i = -1; i < 1; i++)
+                visMinefield[row, col] = adjBombs.ToString() + " ";
+            }
+            else if (adjBombs == 0)
+            {
+                for (int i = row - 1; i < col + 1; i++)
                 {
-                    for (int j = -1; j < 1; j++)
+                    for (int j = col - 1; j < col + 1; j++)
                     {
-                        if (row + i >= 0 && row + i <= minefield.GetLength(0)
-                            && col + j >= 0 && col + j <= minefield.GetLength(1))
+                        if (i >= 0 && i < minefield.GetLength(0)
+                            && j >= 0 && j < minefield.GetLength(1))
                         {
-                            if (visMinefield[row + i, col + j] == "# ")
+                            if (visMinefield[i,j] == "# ")
                             {
-                                visMinefield[row + i, col + j] = "  ";
-                                BombCount(row + i, col + j, minefield, visMinefield);
+                                visMinefield[i,j] = "  ";
+                                BombCount(i, j, minefield, visMinefield);
                             }
                         }
                     }
