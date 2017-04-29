@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Midterm
 {
-    class Minefield
+    class Minefield     
     {
         private int x;
         private int y;
@@ -69,12 +69,5 @@ namespace Midterm
             this.y = y;
             this.bombs = bombs;
         }
-
-        //hold private 2Darray (x,y)
-
-        //GenerateMethod(make array[x[y]], add bombs, fill in numbers)
-
-        //public static ____ checkcontents()
-        //return value of Minefield[x,y];
     }
 }

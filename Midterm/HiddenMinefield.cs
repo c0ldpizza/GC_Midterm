@@ -34,7 +34,7 @@ namespace Midterm
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    minefield[i, j] = 0;
+                    minefield[i, j] = -3;
                 }
             }
             AddBombs(minefield, bombs);           
@@ -72,9 +72,12 @@ namespace Midterm
                     if (i >= 0 && i <= minefield.GetLength(0)
                         && j >= 0 && j <= minefield.GetLength(1))
                     {
-                        if (minefield[i, j] == -1)
+                        if (i != row || j != col)
                         {
-                            adjBombs++;
+                            if (minefield[i, j] == -1)
+                            {
+                                adjBombs++;
+                            }
                         }
                     }
                 }

@@ -8,7 +8,7 @@ namespace Midterm
 {
     class VisibleMinefield : Minefield
     {
-        
+
         private int[,] visMinefield;
 
         //property
@@ -30,35 +30,41 @@ namespace Midterm
         {
 
             visMinefield = new int[rows, columns];
-            //sets all values to #
+            
             for (int i = 0; i < visMinefield.GetLength(0); i++)
             {
                 for (int j = 0; j < visMinefield.GetLength(1); j++)
                 {
-                    visMinefield[i, j] = 0;
+                    visMinefield[i, j] = -3;
                 }
             }
         }
 
-        public static void PrintHiddenArray(int[,] visMinefield)    //need to add spaces in print function now
+        //Prints array for user
+        public static void PrintHiddenArray(int[,] visMinefield)
         {
-            Console.Clear();                      
+            Console.Clear();
             for (int i = 0; i < visMinefield.GetLength(0); i++)
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.Write($"{i} ");  //prints row#
+                Console.ResetColor();
                 for (int j = 0; j < visMinefield.GetLength(1); j++)
                 {
-                    PrintedColor(visMinefield, i, j);   //fix conversion
+                    PrintedColor(visMinefield, i, j);
                 }
                 Console.WriteLine();
             }
             for (int j = 0; j < visMinefield.GetLength(1); j++)
             {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.Write($"  {j}");    //prints column#
+                Console.ResetColor();
             }
             Console.WriteLine();
         }
 
+        //Sets print color and changes certain characters
         public static void PrintedColor(int[,] visMinefield, int i, int j)
         {
             switch (visMinefield[i, j])
@@ -72,13 +78,40 @@ namespace Midterm
                 case 3:
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     break;
+                case 4:
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    break;
+                case -1:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    break;
+                case -2:
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    break;
                 default:
                     break;
             }
-            Console.Write(visMinefield[i, j] + " ");
+
+            if (visMinefield[i, j] == -3)
+            {
+                Console.Write("#  ");
+            }
+            else if (visMinefield[i, j] == -1)
+            {
+                Console.Write("X  ");
+            }
+            else if (visMinefield[i, j] == -2)
+            {
+                Console.Write("F  ");
+            }
+            else
+            {
+                Console.Write(visMinefield[i, j] + "  ");
+            }
+
             Console.ResetColor();
         }
 
+        //Displays all bombs when user loses the game
         public static void PrintFullArray(int[,] minefield, int[,] visMinefield)
         {
             for (int i = 0; i < visMinefield.GetLength(0); i++)

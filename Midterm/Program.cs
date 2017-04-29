@@ -17,14 +17,14 @@ namespace Midterm
             {
                 Console.WriteLine("Please enter the size of your minefield: (x, y) ");
                 Console.Write("Rows: ");
-                int rows = Validation.GetNumberInRange(2, 20);
+                int rows = Validation.GetNumberInRange(2, 10);
 
                 Console.Write("Columns: ");
-                int columns = Validation.GetNumberInRange(2, 20);
+                int columns = Validation.GetNumberInRange(2, 10);
 
                 Console.WriteLine("Please enter the number of bombs in your minefield: ");
 
-                int bombs = Validation.GetValidInteger();
+                int bombs = Validation.GetNumberInRange(1, rows*columns/2);
 
                 HiddenMinefield gameMinefield = new HiddenMinefield(rows, columns, bombs);
 
@@ -41,7 +41,7 @@ namespace Midterm
                     Console.WriteLine("Do you wish to flag a spot or check it? Enter F or C: ");
                     string choice = Validation.GetValidLetter();
 
-                    Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("Please enter your x coordinate: ");
                     Console.Write("xGuess:");
                     int xGuess = Validation.GetNumberInRange(0, rows);
@@ -53,7 +53,10 @@ namespace Midterm
                     if (choice.ToLower() == "f") //if user chooses to place a flag on a spot, spot will be marked "F"
                     {
 
-                        userMinefield.VisMinefield[xGuess, yGuess] = -2;
+                        if (userMinefield.VisMinefield[xGuess, yGuess] != -2)
+                            userMinefield.VisMinefield[xGuess, yGuess] = -2;
+                        else
+                            userMinefield.VisMinefield[xGuess, yGuess] = -3;
 
                     }
                     else if (choice.ToLower() == "c") //user choosing to guess
