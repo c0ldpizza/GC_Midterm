@@ -53,12 +53,12 @@ namespace Midterm
                     if (choice.ToLower() == "f") //if user chooses to place a flag on a spot, spot will be marked "F"
                     {
 
-                        userMinefield.VisMinefield[xGuess, yGuess] = "F ";
+                        userMinefield.VisMinefield[xGuess, yGuess] = -2;
 
                     }
                     else if (choice.ToLower() == "c") //user choosing to guess
                     {
-                        if (gameMinefield.Minefield[xGuess, yGuess] == "B ") //if the x,y coordinates chosen by user are a hidden bomb in the hiddenarray, game over
+                        if (gameMinefield.Minefield[xGuess, yGuess] == -1) //if the x,y coordinates chosen by user are a hidden bomb in the hiddenarray, game over
                         {
                             Console.Clear();
                             Console.WriteLine("Boom! You're Dead!");
@@ -66,7 +66,7 @@ namespace Midterm
                             break;
                         }
 
-                        else if (gameMinefield.Minefield[xGuess, yGuess] != "B ") //if x,y coordinates are not a bomb, board will display empty spots and numbered spots
+                        else if (gameMinefield.Minefield[xGuess, yGuess] != -1) //if x,y coordinates are not a bomb, board will display empty spots and numbered spots
                         {
                             //HiddenMinefield.BombCount(xGuess, yGuess,
                             //      gameMinefield.Minefield, userMinefield.VisMinefield);

@@ -9,10 +9,10 @@ namespace Midterm
     class VisibleMinefield : Minefield
     {
         
-        private string[,] visMinefield;
+        private int[,] visMinefield;
 
         //property
-        public string[,] VisMinefield
+        public int[,] VisMinefield
         {
             get
             {
@@ -29,18 +29,18 @@ namespace Midterm
         public VisibleMinefield(int rows, int columns)
         {
 
-            visMinefield = new string[rows, columns];
+            visMinefield = new int[rows, columns];
             //sets all values to #
             for (int i = 0; i < visMinefield.GetLength(0); i++)
             {
                 for (int j = 0; j < visMinefield.GetLength(1); j++)
                 {
-                    visMinefield[i, j] = "# ";
+                    visMinefield[i, j] = 0;
                 }
             }
         }
 
-        public static void PrintHiddenArray(string[,] visMinefield)
+        public static void PrintHiddenArray(int[,] visMinefield)    //need to add spaces in print function now
         {
             Console.Clear();                      
             for (int i = 0; i < visMinefield.GetLength(0); i++)
@@ -48,7 +48,7 @@ namespace Midterm
                 Console.Write($"{i} ");  //prints row#
                 for (int j = 0; j < visMinefield.GetLength(1); j++)
                 {
-                    PrintedColor(visMinefield, i, j);
+                    PrintedColor(visMinefield, i, j);   //fix conversion
                 }
                 Console.WriteLine();
             }
@@ -59,17 +59,17 @@ namespace Midterm
             Console.WriteLine();
         }
 
-        public static void PrintedColor(string[,] visMinefield, int i, int j)
+        public static void PrintedColor(int[,] visMinefield, int i, int j)
         {
-            switch (visMinefield[i, j].Remove(1))
+            switch (visMinefield[i, j])
             {
-                case "1":
+                case 1:
                     Console.ForegroundColor = ConsoleColor.Blue;
                     break;
-                case "2":
+                case 2:
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     break;
-                case "3":
+                case 3:
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     break;
                 default:
@@ -79,7 +79,7 @@ namespace Midterm
             Console.ResetColor();
         }
 
-        public static void PrintFullArray(string[,] minefield, string[,] visMinefield)
+        public static void PrintFullArray(int[,] minefield, int[,] visMinefield)
         {
             for (int i = 0; i < visMinefield.GetLength(0); i++)
             {

@@ -51,8 +51,8 @@ namespace Midterm
                 bombs = value;
             }
         }
-        #endregion
 
+        #endregion
 
         //default constructor
         public Minefield()
