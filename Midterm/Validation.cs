@@ -91,6 +91,6 @@ namespace Midterm
         //    {
         //        Console.WriteLine("Cell is unavailable");
         //    }
-        }
+       // }
     }
 }
