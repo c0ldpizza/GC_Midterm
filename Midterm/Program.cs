@@ -102,8 +102,10 @@ namespace Midterm
                         if (gameMinefield.Minefield[xGuess, yGuess] == -1) //if the x,y coordinates chosen by user are a hidden bomb in the hiddenarray, game over
                         {
                             Console.Clear();
-                            Console.WriteLine("Boom! You're Dead!");
                             VisibleMinefield.PrintFullArray(gameMinefield.Minefield, userMinefield.VisMinefield);
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("BOOM! You're Dead!");
+                            Console.ResetColor();
                             break;
                         }
 
