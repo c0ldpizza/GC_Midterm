@@ -25,10 +25,6 @@ namespace Midterm
 
             if (input == 1) //Difficulty "Easy"
             {
-
-                int rows = Validation.GetNumberInRange(3, 3);
-                int columns = Validation.GetNumberInRange(3, 3);
-                int bombs = Validation.GetNumberInRange(1, rows * columns / 2);
                 HiddenMinefield gameMinefield = new HiddenMinefield(3, 3, 4);
             }
 
