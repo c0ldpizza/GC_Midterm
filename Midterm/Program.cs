@@ -71,7 +71,7 @@ namespace Midterm
                 // Game loop
                 do
                 {
-                    VisibleMinefield.PrintHiddenArray(userMinefield.VisMinefield); //minefield display
+                    VisibleMinefield.PrintVisibleArray(userMinefield.VisMinefield); //minefield display
 
 
 

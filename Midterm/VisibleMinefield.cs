@@ -41,7 +41,7 @@ namespace Midterm
         }
 
         //Prints array for user
-        public static void PrintHiddenArray(int[,] visMinefield)
+        public static void PrintVisibleArray(int[,] visMinefield)
         {
             Console.Clear();
             for (int i = 0; i < visMinefield.GetLength(0); i++)
@@ -121,7 +121,7 @@ namespace Midterm
                     visMinefield[i, j] = minefield[i, j];
                 }
             }
-            PrintHiddenArray(visMinefield);
+            PrintVisibleArray(visMinefield);
         }
 
     }
