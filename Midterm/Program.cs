@@ -10,48 +10,59 @@ namespace Midterm
     {
         static void Main(string[] args)
         {
+            int rows = 0, columns = 0, bombs = 0;
+
+            do
+            {
+                
                 //get user input for minefield size and # of bombs(pass to Minefield constructor)
                 Console.WriteLine("Welcome to the Minefield! \n");
 
                 Console.WriteLine("Choose enter your level of difficulty! \n");
-                Console.Write(" 1 = Easy    (3x3 Field with 4 Bombs) \n");
-                Console.Write(" 2 = Medium  (8x8 Field with 28 Bombs) \n");
-                Console.Write(" 3 = Hard    (10x10 Field with 44 Bombs) \n");
-                Console.Write(" 4 = Custom  (Customize your own minefield)\n");
+                Console.WriteLine(" 1 = Easy    (3x3 Field with 4 Bombs)");
+                Console.WriteLine(" 2 = Medium  (8x8 Field with 28 Bombs)");
+                Console.WriteLine(" 3 = Hard    (10x10 Field with 44 Bombs)");
+                Console.WriteLine(" 4 = Custom  (Customize your own minefield)");
 
-            int input = Validation.GetNumberInRange(1, 4);
+                int input = Validation.GetNumberInRange(1, 4);
 
-            //Determining which level of difficulty the user entered:
+                //Determining which level of difficulty the user entered:
 
-            if (input == 1) //Difficulty "Easy"
-            {
-                HiddenMinefield gameMinefield = new HiddenMinefield(3, 3, 4);
-            }
+                if (input == 1) //Difficulty "Easy"
+                {
+                    //HiddenMinefield gameMinefield = new HiddenMinefield(3, 3, 4);
+                    rows = 3;
+                    columns = 3;
+                    bombs = 4;
+                }
 
-            else if (input == 2) //Difficulty "Medium"
-            {
-                HiddenMinefield gameMinefield = new HiddenMinefield(8, 8, 28);
-            }
+                else if (input == 2) //Difficulty "Medium"
+                {
+                    rows = 8;
+                    columns = 8;
+                    bombs = 28;
+                }
 
-            else if (input == 3) //Difficulty "Hard"
-            {
-                HiddenMinefield gameMinefield = new HiddenMinefield(10, 10, 44);
-            }
+                else if (input == 3) //Difficulty "Hard"
+                {
+                    rows = 10;
+                    columns = 10;
+                    bombs = 44;
+                }
 
-            else if (input == 4) //Opted to create their own Minefield
+                else if (input == 4) //Opted to create their own Minefield
+                {
+                    Console.WriteLine("Please enter the size of your minefield: (x, y) ");
+                    Console.Write("Rows: ");
+                    rows = Validation.GetNumberInRange(2, 10);
 
-            do
-            {
-                Console.WriteLine("Please enter the size of your minefield: (x, y) ");
-                Console.Write("Rows: ");
-                int rows = Validation.GetNumberInRange(2, 10);
+                    Console.Write("Columns: ");
+                    columns = Validation.GetNumberInRange(2, 10);
 
-                Console.Write("Columns: ");
-                int columns = Validation.GetNumberInRange(2, 10);
+                    Console.WriteLine("Please enter the number of bombs in your minefield: ");
 
-                Console.WriteLine("Please enter the number of bombs in your minefield: ");
-
-                int bombs = Validation.GetNumberInRange(1, rows*columns/2);
+                    bombs = Validation.GetNumberInRange(1, rows * columns / 2);
+                }
 
                 HiddenMinefield gameMinefield = new HiddenMinefield(rows, columns, bombs);
 
@@ -101,11 +112,11 @@ namespace Midterm
                             userMinefield.VisMinefield[xGuess, yGuess] = gameMinefield.Minefield[xGuess, yGuess];
                         }
                     }
-                    
+
                     //end loop
                 } while (true);
 
-            } while(Validation.Continue());
+            } while (Validation.Continue());
         }
     }
 }
