@@ -34,7 +34,7 @@ namespace Midterm
             {
                 for (int j = 0; j < columns; j++)
                 {
-                    minefield[i, j] = 0; //do this for every cell that is >= -1
+                    minefield[i, j] = 0; 
                 }
             }
 
@@ -73,6 +73,7 @@ namespace Midterm
             }
         }
 
+        //Method to increment non-bomb cells adjacent to each bomb
         public static void AddNumbers(int[,] minefield, int bombRow, int bombCol)
         {
             for (int i = bombRow - 1; i < bombRow + 1; i++)
@@ -82,13 +83,10 @@ namespace Midterm
                     if (i >= 0 && i < minefield.GetLength(0)
                         && j >= 0 && j < minefield.GetLength(1))
                     {
-                        if (i != bombRow || j != bombCol)
-                        {
                             if (minefield[i, j] >= 0)
                             {
-                                minefield[i, j] = (minefield[i, j] + 1);
+                                minefield[i, j]++;
                             }
-                        }
                     }
                 }
             }

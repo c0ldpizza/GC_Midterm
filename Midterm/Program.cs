@@ -33,21 +33,21 @@ namespace Midterm
                     //HiddenMinefield gameMinefield = new HiddenMinefield(3, 3, 4);
                     rows = 3;
                     columns = 3;
-                    bombs = 4;
+                    bombs = 2;
                 }
 
                 else if (input == 2) //Difficulty "Medium"
                 {
                     rows = 8;
                     columns = 8;
-                    bombs = 28;
+                    bombs = 12;
                 }
 
                 else if (input == 3) //Difficulty "Hard"
                 {
                     rows = 10;
                     columns = 10;
-                    bombs = 44;
+                    bombs = 24;
                 }
 
                 else if (input == 4) //Opted to create their own Minefield
