@@ -82,12 +82,14 @@ namespace Midterm
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("Please enter your x coordinate: ");
                     Console.Write("xGuess:");
-                    int xGuess = Validation.GetNumberInRange(0, rows);
+                    int xGuess = Validation.GetNumberInRange(0, rows-1);
+
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("Please enter your y coordinate: ");
                     Console.Write("yGuess:");
-                    int yGuess = Validation.GetNumberInRange(0, columns);
+                    int yGuess = Validation.GetNumberInRange(0, columns-1);
                     Console.ForegroundColor = ConsoleColor.Black;
+
                     if (choice.ToLower() == "f") //if user chooses to place a flag on a spot, spot will be marked "F"
                     {
 
