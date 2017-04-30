@@ -13,6 +13,12 @@ namespace Midterm
             //get user input for minefield size and # of bombs(pass to Minefield constructor)
             Console.WriteLine("Welcome to the Minefield! \n");
 
+                Console.WriteLine("Choose enter your level of difficulty! \n");
+                Console.Write(" 1 = Easy    (3x3 Field with 4 Bombs) \n");
+                Console.Write(" 2 = Medium  (8x8 Field with 28 Bombs) \n");
+                Console.Write(" 3 = Hard    (10x10 Field with 44 Bombs) \n");
+                Console.Write(" 4 = Custom  (Customize your own minefield)\n");
+
             do
             {
                 Console.WriteLine("Please enter the size of your minefield: (x, y) ");
