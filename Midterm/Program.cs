@@ -10,14 +10,33 @@ namespace Midterm
     {
         static void Main(string[] args)
         {
-            //get user input for minefield size and # of bombs(pass to Minefield constructor)
-            Console.WriteLine("Welcome to the Minefield! \n");
+                //get user input for minefield size and # of bombs(pass to Minefield constructor)
+                Console.WriteLine("Welcome to the Minefield! \n");
 
                 Console.WriteLine("Choose enter your level of difficulty! \n");
                 Console.Write(" 1 = Easy    (3x3 Field with 4 Bombs) \n");
                 Console.Write(" 2 = Medium  (8x8 Field with 28 Bombs) \n");
                 Console.Write(" 3 = Hard    (10x10 Field with 44 Bombs) \n");
                 Console.Write(" 4 = Custom  (Customize your own minefield)\n");
+
+            int input = Validation.GetNumberInRange(1, 4);
+
+            //Determining which level of difficulty the user entered:
+
+            if (input == 1) //Difficulty "Easy"
+            {
+                HiddenMinefield gameMinefield = new HiddenMinefield(3, 3, 4);
+            }
+
+            else if (input == 2) //Difficulty "Medium"
+            {
+                HiddenMinefield gameMinefield = new HiddenMinefield(8, 8, 28);
+            }
+
+            else if (input == 3) //Difficulty "Hard"
+            {
+                HiddenMinefield gameMinefield = new HiddenMinefield(10, 10, 44);
+            }
 
             do
             {
