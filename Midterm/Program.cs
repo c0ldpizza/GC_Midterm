@@ -33,7 +33,7 @@ namespace Midterm
                     VisibleMinefield.PrintVisibleArray(userMinefield.VisMinefield); //minefield display
 
                     //Getting user input for box selection
-                    Console.WriteLine("Do you wish to flag a spot or check it? Enter F or C: ");
+                    Console.WriteLine("Do you wish to flag a cell, check a cell, or double click a cell? Enter F or C or D: ");
                     string choice = Validation.GetValidLetter();
 
                     if (choice.ToLower() == "f") //if user chooses to place a flag on a spot, spot will be marked "F"
@@ -43,11 +43,15 @@ namespace Midterm
 
                     else if (choice.ToLower() == "c") //user choosing to reveal a cell
                     {
-                       loseGame = RevealCell(userMinefield.VisMinefield, gameMinefield.Minefield);
+                        loseGame = RevealCell(userMinefield.VisMinefield, gameMinefield.Minefield);
 
                     }
+                    else if (choice.ToLower() == "d") //user choosing to reveal a cell
+                    {
+                        DoubleClickCell(userMinefield.VisMinefield, gameMinefield.Minefield);
+                    }
 
-                    winMethod(userMinefield.VisMinefield, bombs);
+                        winMethod(userMinefield.VisMinefield, bombs);
 
 
                     //end loop
@@ -179,7 +183,60 @@ namespace Midterm
             }
                 return (false);
         }
-           public static void winMethod(int[,] array, int bombs)
+
+        public static void DoubleClickCell(int[,] array, int[,] hiddenArray)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Please enter the x coordinate to double click: ");
+
+            int xGuess = Validation.GetNumberInRange(0, rows - 1);
+
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("Please enter the y coordinate to double click: ");
+
+            int yGuess = Validation.GetNumberInRange(0, columns - 1);
+
+            Console.ResetColor();
+
+            int adjFlags = 0;
+
+            for (int i = xGuess - 1; i <= xGuess + 1; i++)
+            {
+                if (i >= 0 && i < array.GetLength(0))
+
+                    for (int j = yGuess - 1; j <= yGuess + 1; j++)
+                    {
+                        if (j >= 0 && j < array.GetLength(1))
+                        {
+                            if(array[i, j] == -2)
+                            {
+                                adjFlags++;
+                            }
+                        }
+                    }
+            }
+
+            if (array[xGuess, yGuess] == adjFlags)
+            {
+                for (int i = xGuess - 1; i <= xGuess + 1; i++)
+                {
+                    if (i >= 0 && i < array.GetLength(0))
+
+                        for (int j = yGuess - 1; j <= yGuess + 1; j++)
+                        {
+                            if (j >= 0 && j < array.GetLength(1))
+                            {
+                                if (array[i, j] == -3)
+                                {
+                                    array[i, j] = hiddenArray[i, j];
+                                }
+                            }
+                        }
+                }
+            }
+        }
+
+        public static void winMethod(int[,] array, int bombs)
         {
             int unrevealedCells = 0;
 

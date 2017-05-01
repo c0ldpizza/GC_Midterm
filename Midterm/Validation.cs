@@ -74,7 +74,7 @@ namespace Midterm
             {
                 string input = Console.ReadLine();
 
-                if ((input.ToLower() == "f") || (input.ToLower() == "c"))
+                if ((input.ToLower() == "f") || (input.ToLower() == "c") || (input.ToLower() == "d"))
                 {
                     return input;
                 }
