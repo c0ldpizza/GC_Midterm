@@ -11,6 +11,8 @@ namespace Midterm
         static void Main(string[] args)
         {
             int rows = 0, columns = 0, bombs = 0;
+            int maxFlags;
+            int flagCount = 0;
 
             do
             {
@@ -30,7 +32,6 @@ namespace Midterm
 
                 if (input == 1) //Difficulty "Easy"
                 {
-                    //HiddenMinefield gameMinefield = new HiddenMinefield(3, 3, 4);
                     rows = 3;
                     columns = 3;
                     bombs = 2;
@@ -50,7 +51,7 @@ namespace Midterm
                     bombs = 24;
                 }
 
-                else if (input == 4) //Opted to create their own Minefield
+                else if (input == 4) //Get input for custom minefield size
                 {
                     Console.WriteLine("Please enter the size of your minefield: (x, y) ");
                     Console.Write("Rows: ");
@@ -64,6 +65,9 @@ namespace Midterm
                     bombs = Validation.GetNumberInRange(1, rows * columns / 2);
                 }
 
+                //Sets max flags and initializes minefields
+                maxFlags = bombs;
+
                 HiddenMinefield gameMinefield = new HiddenMinefield(rows, columns, bombs);
 
                 VisibleMinefield userMinefield = new VisibleMinefield(rows, columns);
@@ -73,34 +77,59 @@ namespace Midterm
                 {
                     VisibleMinefield.PrintVisibleArray(userMinefield.VisMinefield); //minefield display
 
-
-
                     //Getting user input for box selection
                     Console.WriteLine("Do you wish to flag a spot or check it? Enter F or C: ");
                     string choice = Validation.GetValidLetter();
 
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("Please enter your x coordinate: ");
-                    Console.Write("xGuess:");
-                    int xGuess = Validation.GetNumberInRange(0, rows-1);
-
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    Console.WriteLine("Please enter your y coordinate: ");
-                    Console.Write("yGuess:");
-                    int yGuess = Validation.GetNumberInRange(0, columns-1);
-                    Console.ForegroundColor = ConsoleColor.Black;
-
                     if (choice.ToLower() == "f") //if user chooses to place a flag on a spot, spot will be marked "F"
                     {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Please enter the x coordinate to flag: ");
 
-                        if (userMinefield.VisMinefield[xGuess, yGuess] != -2)
-                            userMinefield.VisMinefield[xGuess, yGuess] = -2;
+                        int xFlag = Validation.GetNumberInRange(0, rows - 1);
+
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("Please enter the y coordinate to flag: ");
+
+                        int yFlag = Validation.GetNumberInRange(0, columns - 1);
+
+                        Console.ResetColor();
+                        if (flagCount == maxFlags)
+                        {
+                            Console.WriteLine("You have the reached the maximum flag limit!\nPlease remove one and try again.");
+                            Console.ReadLine();
+                        }
+                        else if (userMinefield.VisMinefield[xFlag, yFlag] == -3)
+                        {
+                            flagCount++;
+                            userMinefield.VisMinefield[xFlag, yFlag] = -2;
+                        }
+                        else if (userMinefield.VisMinefield[xFlag, yFlag] == -2)
+                        {
+                            flagCount--;
+                            userMinefield.VisMinefield[xFlag, yFlag] = -3;
+                        }
                         else
-                            userMinefield.VisMinefield[xGuess, yGuess] = -3;
-
+                        {
+                            Console.WriteLine("You cannot flag a revealed space!");
+                            Console.ReadLine();
+                        }
                     }
-                    else if (choice.ToLower() == "c") //user choosing to guess
+
+                    else if (choice.ToLower() == "c") //user choosing to reveal a cell
                     {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine("Please enter the x coordinate to reveal: ");
+
+                        int xGuess = Validation.GetNumberInRange(0, rows - 1);
+
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("Please enter the y coordinate to reveal: ");
+
+                        int yGuess = Validation.GetNumberInRange(0, columns - 1);
+
+                        Console.ResetColor();
+
                         if (gameMinefield.Minefield[xGuess, yGuess] == -1) //if the x,y coordinates chosen by user are a hidden bomb in the hiddenarray, game over
                         {
                             Console.Clear();

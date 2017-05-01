@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Midterm
 {
-    class HiddenMinefield : Minefield
+    class HiddenMinefield
     {
         private int[,] minefield;
 
@@ -46,7 +46,6 @@ namespace Midterm
                 {
                     if (minefield[i, j] == -1)
                     {
-                        //BombCountSimple(i, j, minefield);
                         AddNumbers(minefield, i, j);
                     }
                 }

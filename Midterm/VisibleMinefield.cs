@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Midterm
 {
-    class VisibleMinefield : Minefield
+    class VisibleMinefield
     {
 
         private int[,] visMinefield;
