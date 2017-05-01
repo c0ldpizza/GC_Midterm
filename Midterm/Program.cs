@@ -67,7 +67,7 @@ namespace Midterm
             Console.WriteLine("Choose enter your level of difficulty!\n");
             Console.WriteLine(" 1 = Easy    (3x3 Field with 2 Bombs)");
             Console.WriteLine(" 2 = Medium  (8x8 Field with 12 Bombs)");
-            Console.WriteLine(" 3 = Hard    (10x10 Field with 24 Bombs)");
+            Console.WriteLine(" 3 = Hard    (10x10 Field with 20 Bombs)");
             Console.WriteLine(" 4 = Custom  (Customize your own minefield)\n");
 
             Console.Write("Difficulty: ");
@@ -91,7 +91,7 @@ namespace Midterm
             {
                 rows = 10;
                 columns = 10;
-                bombs = 24;
+                bombs = 20;
             }
 
             else if (input == 4) //Get input for custom minefield size
@@ -172,10 +172,13 @@ namespace Midterm
 
             else if (hiddenArray[xGuess, yGuess] != -1) //if x,y coordinates are not a bomb, board will display empty spots and numbered spots
             {
-                if(hiddenArray[xGuess, yGuess] != 0)
+                if (hiddenArray[xGuess, yGuess] != 0)
+                {
                     array[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
+                }
                 else
                 {
+                    array[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
                     VisibleMinefield.RevealZeroes(array, hiddenArray, xGuess, yGuess);
                 }
    

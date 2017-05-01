@@ -124,24 +124,25 @@ namespace Midterm
             PrintVisibleArray(visMinefield);
         }
 
-        public static void RevealZeroes(int[,] array, int[,] hiddenArray, int xGuess, int yGuess)
+        public static void RevealZeroes(int[,] visArray, int[,] hiddenArray, int xGuess, int yGuess)
         {
             //runs if hiddenArray[x,y] == 0
             for (int i = xGuess - 1; i <= xGuess + 1; i++)
             {
-                if (i >= 0 && i < array.GetLength(0))
+                if (i >= 0 && i < visArray.GetLength(0))
 
-                    for (int j = xGuess - 1; j <= xGuess + 1; j++)
+                    for (int j = yGuess - 1; j <= yGuess + 1; j++)
                     {
-                        if (j >= 0 && j < array.GetLength(1))
+                        if (j >= 0 && j < visArray.GetLength(1))
                         {
-                            if (array[i, j] == -3)
+                            if (visArray[i, j] == -3 && hiddenArray[i,j] > 0)
                             {
-                                array[i, j] = hiddenArray[i, j];
+                                visArray[i, j] = hiddenArray[i, j];
                             }
-                            else if(array[i,j] == 0)
+                            else if(visArray[i,j] == -3 && hiddenArray[i, j] == 0)
                             {
-                                RevealZeroes(array, hiddenArray, i, j);
+                                visArray[i, j] = hiddenArray[i, j];
+                                RevealZeroes(visArray, hiddenArray, i, j);
                             }
                         }
                     }
