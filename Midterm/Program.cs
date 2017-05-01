@@ -11,13 +11,10 @@ namespace Midterm
         public static int rows = 0, columns = 0, bombs = 0;
         public static int maxFlags;
         public static int flagCount = 0;
-        //  public static int totalCells = rows * columns;
         static void Main(string[] args)
         {
             do
             {
-                //bool gameOver = false;
-
                 //get user input for minefield size and # of bombs(pass to Minefield constructor)
                 //sets board size and bombs based on input
                 ChooseBoard();
@@ -41,16 +38,13 @@ namespace Midterm
 
                     if (choice.ToLower() == "f") //if user chooses to place a flag on a spot, spot will be marked "F"
                     {
-                        //  FlagCell(userMinefield.VisMinefield, totalCells);
                         FlagCell(userMinefield.VisMinefield);
                     }
 
                     else if (choice.ToLower() == "c") //user choosing to reveal a cell
                     {
                        loseGame = RevealCell(userMinefield.VisMinefield, gameMinefield.Minefield);
-                        //RevealCell(userMinefield.VisMinefield, gameMinefield.Minefield, totalCells);
-                        //if (totalCells + flagCount == 0)
-                        //    Console.WriteLine("You Win!");
+
                     }
 
                     winMethod(userMinefield.VisMinefield, bombs);
