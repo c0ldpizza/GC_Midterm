@@ -17,52 +17,6 @@ namespace Midterm
             do
             {
                 //bool gameOver = false;
-                Console.WriteLine("Welcome to the Minefield! \n");
-
-                Console.WriteLine("Choose your level of difficulty! \n");
-                Console.WriteLine(" 1 = Easy    (3x3 Field with 2 Bombs)");
-                Console.WriteLine(" 2 = Medium  (8x8 Field with 12 Bombs)");
-                Console.WriteLine(" 3 = Hard    (10x10 Field with 24 Bombs)");
-                Console.WriteLine(" 4 = Custom  (Customize your own minefield)");
-
-                int input = Validation.GetNumberInRange(1, 4);
-
-                //Determining which level of difficulty the user entered:
-
-                if (input == 1) //Difficulty "Easy"
-                {
-                    rows = 3;
-                    columns = 3;
-                    bombs = 2;
-                }
-
-                else if (input == 2) //Difficulty "Medium"
-                {
-                    rows = 8;
-                    columns = 8;
-                    bombs = 12;
-                }
-
-                else if (input == 3) //Difficulty "Hard"
-                {
-                    rows = 10;
-                    columns = 10;
-                    bombs = 24;
-                }
-
-                else if (input == 4) //Get input for custom minefield size
-                {
-                    Console.WriteLine("Please enter the size of your minefield: (x, y) ");
-                    Console.Write("Rows: ");
-                    rows = Validation.GetNumberInRange(2, 10);
-
-                    Console.Write("Columns: ");
-                    columns = Validation.GetNumberInRange(2, 10);
-
-                    Console.WriteLine("Please enter the number of bombs in your minefield: ");
-
-                    bombs = Validation.GetNumberInRange(1, rows * columns / 2);
-                }
 
                 //get user input for minefield size and # of bombs(pass to Minefield constructor)
                 //sets board size and bombs based on input
