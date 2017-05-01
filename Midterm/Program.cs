@@ -176,7 +176,12 @@ namespace Midterm
 
             else if (hiddenArray[xGuess, yGuess] != -1) //if x,y coordinates are not a bomb, board will display empty spots and numbered spots
             {
-                array[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
+                if(hiddenArray[xGuess, yGuess] != 0)
+                    array[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
+                else
+                {
+                    VisibleMinefield.RevealZeroes(hiddenArray, xGuess, yGuess);
+                }
                 //  totalCells--;
             }
                 return (false);
