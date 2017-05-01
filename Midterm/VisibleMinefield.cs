@@ -30,7 +30,7 @@ namespace Midterm
         {
 
             visMinefield = new int[rows, columns];
-            
+
             for (int i = 0; i < visMinefield.GetLength(0); i++)
             {
                 for (int j = 0; j < visMinefield.GetLength(1); j++)
@@ -124,6 +124,29 @@ namespace Midterm
             PrintVisibleArray(visMinefield);
         }
 
+        public static void RevealZeroes(int[,] array, int[,] hiddenArray, int xGuess, int yGuess)
+        {
+            //runs if hiddenArray[x,y] == 0
+            for (int i = xGuess - 1; i <= xGuess + 1; i++)
+            {
+                if (i >= 0 && i < array.GetLength(0))
+
+                    for (int j = xGuess - 1; j <= xGuess + 1; j++)
+                    {
+                        if (j >= 0 && j < array.GetLength(1))
+                        {
+                            if (array[i, j] == -3)
+                            {
+                                array[i, j] = hiddenArray[i, j];
+                            }
+                            else if(array[i,j] == 0)
+                            {
+                                RevealZeroes(array, hiddenArray, i, j);
+                            }
+                        }
+                    }
+            }
+        }
     }
 }
 
