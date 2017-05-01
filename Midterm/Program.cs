@@ -180,7 +180,7 @@ namespace Midterm
                     array[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
                 else
                 {
-                    VisibleMinefield.RevealZeroes(hiddenArray, xGuess, yGuess);
+                    VisibleMinefield.RevealZeroes(array, hiddenArray, xGuess, yGuess);
                 }
                 //  totalCells--;
             }
