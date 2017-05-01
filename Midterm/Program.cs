@@ -53,6 +53,9 @@ namespace Midterm
                         //    Console.WriteLine("You Win!");
                     }
 
+                    winMethod(userMinefield.VisMinefield, bombs);
+
+
                     //end loop
                 } while (!loseGame);
 
@@ -105,7 +108,7 @@ namespace Midterm
                 bombs = Validation.GetNumberInRange(1, rows * columns / 2);
             }
         }
-  //        public static void FlagCell(int[,] array, int totalCellInput)
+ 
         public static void FlagCell(int[,] array)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -122,7 +125,6 @@ namespace Midterm
             if (array[xFlag, yFlag] == -2)
             {
                 flagCount--;
-           //   totalCells--;
                 array[xFlag, yFlag] = -3;
             }
             else if (flagCount == maxFlags)
@@ -133,7 +135,7 @@ namespace Midterm
             else if (array[xFlag, yFlag] == -3)
             {
                 flagCount++;
-                //   totalCells--;
+               
                 array[xFlag, yFlag] = -2;
             }
             else
@@ -142,13 +144,7 @@ namespace Midterm
                 Console.ReadLine();
             }
         }
-        //public static bool gameOver()
-        //{
-        //    return false;
 
-        //}
-
-  //      public static void RevealCell(int[,] array, int[,] hiddenArray, int totalCellInput)
         public static bool RevealCell(int[,] array, int[,] hiddenArray)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -181,5 +177,25 @@ namespace Midterm
             }
                 return (false);
         }
+           public static void winMethod(int[,] array, int bombs)
+        {
+            int unrevealedCells = 0;
+            //(unrevealed + flags) = bombs
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+
+                    if (array[i, j] == -3)
+                        unrevealedCells++;
+                } 
+            }
+            if(unrevealedCells +flagCount == bombs)
+            {
+                Console.WriteLine("You win!");
+                Console.ReadLine();
+            }
+        }
     }
 }
+
