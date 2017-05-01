@@ -11,6 +11,7 @@ namespace Midterm
         public static int rows = 0, columns = 0, bombs = 0;
         public static int maxFlags;
         public static int flagCount = 0;
+
         static void Main(string[] args)
         {
             do
@@ -52,7 +53,6 @@ namespace Midterm
                     }
 
                         winMethod(userMinefield.VisMinefield, bombs);
-
 
                     //end loop
                 } while (!loseGame);
@@ -143,7 +143,7 @@ namespace Midterm
             }
         }
 
-        public static bool RevealCell(int[,] array, int[,] hiddenArray)
+        public static bool RevealCell(int[,] visArray, int[,] hiddenArray)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Please enter the x coordinate to reveal: ");
@@ -160,9 +160,9 @@ namespace Midterm
             if (hiddenArray[xGuess, yGuess] == -1) //if the x,y coordinates chosen by user are a hidden bomb in the hiddenarray, game over
             {
                 Console.Clear();
-                VisibleMinefield.PrintFullArray(hiddenArray, array);
+                VisibleMinefield.PrintFullArray(hiddenArray, visArray);
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("BOOM!\nYOU\nBLEW\nUP\nEARTH!");
+                Console.WriteLine("BOOM!\nYOU\nBLEW\nUP\nEARTH!\n");
                 Console.ResetColor();
 
                 return (true);
@@ -172,12 +172,12 @@ namespace Midterm
             {
                 if (hiddenArray[xGuess, yGuess] != 0)
                 {
-                    array[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
+                    visArray[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
                 }
                 else
                 {
-                    array[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
-                    VisibleMinefield.RevealZeroes(array, hiddenArray, xGuess, yGuess);
+                    visArray[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
+                    VisibleMinefield.RevealZeroes(visArray, hiddenArray, xGuess, yGuess);
                 }
    
             }
@@ -249,7 +249,7 @@ namespace Midterm
                         unrevealedCells++;
                 } 
             }
-            if(unrevealedCells +flagCount == bombs)
+            if(unrevealedCells + flagCount == bombs)
             {
                
                 WinGame.Run();
