@@ -24,6 +24,7 @@ namespace Midterm
 
                 //Sets max flags and initializes minefields
                 maxFlags = bombs;
+                bool loseGame = false;
 
                 HiddenMinefield gameMinefield = new HiddenMinefield(rows, columns, bombs);
 
@@ -46,14 +47,14 @@ namespace Midterm
 
                     else if (choice.ToLower() == "c") //user choosing to reveal a cell
                     {
-                        RevealCell(userMinefield.VisMinefield, gameMinefield.Minefield);
+                       loseGame = RevealCell(userMinefield.VisMinefield, gameMinefield.Minefield);
                         //RevealCell(userMinefield.VisMinefield, gameMinefield.Minefield, totalCells);
                         //if (totalCells + flagCount == 0)
                         //    Console.WriteLine("You Win!");
                     }
 
                     //end loop
-                } while (true);
+                } while (!loseGame);
 
             } while (Validation.Continue());
         }
@@ -148,7 +149,7 @@ namespace Midterm
         //}
 
   //      public static void RevealCell(int[,] array, int[,] hiddenArray, int totalCellInput)
-        public static void RevealCell(int[,] array, int[,] hiddenArray)
+        public static bool RevealCell(int[,] array, int[,] hiddenArray)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Please enter the x coordinate to reveal: ");
@@ -169,7 +170,8 @@ namespace Midterm
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("BOOM! You're Dead!");
                 Console.ResetColor();
-                //break;        need to call Lose method here or loop won't break. Make boolean method?<<<
+
+                return (true);
             }
 
             else if (hiddenArray[xGuess, yGuess] != -1) //if x,y coordinates are not a bomb, board will display empty spots and numbered spots
@@ -177,6 +179,7 @@ namespace Midterm
                 array[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
                 //  totalCells--;
             }
+                return (false);
         }
     }
 }
