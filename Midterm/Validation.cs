@@ -15,7 +15,6 @@ namespace Midterm
         {
             int input;
 
-            //Console.WriteLine("Please enter an Integer: ");
 
             while (!int.TryParse(Console.ReadLine(), out input))
             {
@@ -24,10 +23,8 @@ namespace Midterm
 
             return input;
         }
-        //below is the generic min max validation -- need to make sure min max numbers are size of array
 
-        /*when we first ask them to enter number of rows and columns, should we assign a min max number
-         so it's not a ginormous game? And validate that it's within max amount? */
+
 
         public static int GetNumberInRange(int min, int max)
         {
@@ -79,18 +76,12 @@ namespace Midterm
                     return input;
                 }
                 else
-                    Console.WriteLine("Invalid input. Please Enter F or C: ");
+                    Console.WriteLine("Invalid input. Please Enter F or C or D: ");
 
             } while (true);
             
         }
 
-        //public static void CellCheck()
-        //{
-        //    if (userMinefield.VisMinefield[xGuess, yGuess] = "F ")
-        //    {
-        //        Console.WriteLine("Cell is unavailable");
-        //    }
-       // }
+
     }
 }
