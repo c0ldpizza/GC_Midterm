@@ -11,11 +11,12 @@ namespace Midterm
         public static int rows = 0, columns = 0, bombs = 0;
         public static int maxFlags;
         public static int flagCount = 0;
-
+        //  public static int totalCells = rows * columns;
         static void Main(string[] args)
         {
             do
             {
+                //bool gameOver = false;
                 Console.WriteLine("Welcome to the Minefield! \n");
 
                 //get user input for minefield size and # of bombs(pass to Minefield constructor)
@@ -40,12 +41,16 @@ namespace Midterm
 
                     if (choice.ToLower() == "f") //if user chooses to place a flag on a spot, spot will be marked "F"
                     {
+                        //  FlagCell(userMinefield.VisMinefield, totalCells);
                         FlagCell(userMinefield.VisMinefield);
                     }
 
                     else if (choice.ToLower() == "c") //user choosing to reveal a cell
                     {
                         RevealCell(userMinefield.VisMinefield, gameMinefield.Minefield);
+                        //RevealCell(userMinefield.VisMinefield, gameMinefield.Minefield, totalCells);
+                        //if (totalCells + flagCount == 0)
+                        //    Console.WriteLine("You Win!");
                     }
 
                     //end loop
@@ -100,7 +105,7 @@ namespace Midterm
                 bombs = Validation.GetNumberInRange(1, rows * columns / 2);
             }
         }
-
+  //        public static void FlagCell(int[,] array, int totalCellInput)
         public static void FlagCell(int[,] array)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -117,6 +122,7 @@ namespace Midterm
             if (array[xFlag, yFlag] == -2)
             {
                 flagCount--;
+           //   totalCells--;
                 array[xFlag, yFlag] = -3;
             }
             else if (flagCount == maxFlags)
@@ -127,6 +133,7 @@ namespace Midterm
             else if (array[xFlag, yFlag] == -3)
             {
                 flagCount++;
+                //   totalCells--;
                 array[xFlag, yFlag] = -2;
             }
             else
@@ -135,7 +142,13 @@ namespace Midterm
                 Console.ReadLine();
             }
         }
+        //public static bool gameOver()
+        //{
+        //    return false;
 
+        //}
+
+  //      public static void RevealCell(int[,] array, int[,] hiddenArray, int totalCellInput)
         public static void RevealCell(int[,] array, int[,] hiddenArray)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -163,6 +176,7 @@ namespace Midterm
             else if (hiddenArray[xGuess, yGuess] != -1) //if x,y coordinates are not a bomb, board will display empty spots and numbered spots
             {
                 array[xGuess, yGuess] = hiddenArray[xGuess, yGuess];
+                //  totalCells--;
             }
         }
     }
