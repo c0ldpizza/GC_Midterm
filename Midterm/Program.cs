@@ -164,7 +164,7 @@ namespace Midterm
                 Console.Clear();
                 VisibleMinefield.PrintFullArray(hiddenArray, array);
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("BOOM! You're Dead!");
+                Console.WriteLine("BOOM!\nYOU\nBLEW\nUP\nEARTH!");
                 Console.ResetColor();
 
                 return (true);
@@ -178,14 +178,14 @@ namespace Midterm
                 {
                     VisibleMinefield.RevealZeroes(array, hiddenArray, xGuess, yGuess);
                 }
-                //  totalCells--;
+   
             }
                 return (false);
         }
            public static void winMethod(int[,] array, int bombs)
         {
             int unrevealedCells = 0;
-            //(unrevealed + flags) = bombs
+
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -197,8 +197,9 @@ namespace Midterm
             }
             if(unrevealedCells +flagCount == bombs)
             {
-                Console.WriteLine("You win!");
-                Console.ReadLine();
+               
+                WinGame.Run();
+                
             }
         }
     }
